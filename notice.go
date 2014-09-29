@@ -8,6 +8,10 @@ type AndroidNotice struct {
 	Object NoticeAndroid `json:"android"`
 }
 
+type IosNotice struct {
+
+}
+
 type NoticeAndroid struct {
 	Alert     string `json:"alert"`
 	Title     string `json:"title"`

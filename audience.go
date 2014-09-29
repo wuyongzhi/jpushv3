@@ -40,6 +40,11 @@ func (this *Audience) set(key string, Object []string) {
 		case map[string][]string:
 			this.Object.(map[string][]string)[key] = Object
 		default:
+			//
+			//	如果设置了 all ，则会走到这里，避免无法更改 all 的情形
+			//
+			s := map[string][]string{key: Object}
+			this.Object = s
 		}
 	}
 }
