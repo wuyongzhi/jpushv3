@@ -1,10 +1,10 @@
-package push
+package jpushv3
 
 import (
 	"encoding/base64"
 	"encoding/json"
 	"errors"
-	"jpush/api/common"
+	"github.com/wuyongzhi/jpushv3/common"
 	"strings"
 )
 

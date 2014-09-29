@@ -1,8 +1,8 @@
-package main
+package jpushv3
 
 import (
 	"fmt"
-	"jpush/api/push"
+	"testing"
 )
 
 const (
@@ -10,33 +10,29 @@ const (
 	secret = "570d3442dc88d1382fe93b89"
 )
 
-const jsons = `{
-   "platform" : "all",
-   "audience" : "all",
-   "notification" : {
-      "alert" : "Hi, go!" 
-   }
-}`
 
-func main() {
+
+
+func Test_jpushv3(t *testing.T) {
+
 
 	//Platform
-	var pf push.Platform
+	var pf Platform
 	//pf.Add(push.ANDROID)
 	pf.All()
 
 	//Audience
-	var ad push.Audience
+	var ad Audience
 	//s := []string{"1", "2", "3"}
 	//ad.SetID(s)
 	ad.All()
 
 	//Notice
-	var notice push.AndroidNotice
+	var notice AndroidNotice
 	notice.SetAlert("alert_test")
 	notice.SetTitle("title_test")
 
-	var msg push.Message
+	var msg Message
 	msg.Title = "Hello"
 	msg.Content = "祝大家工作顺利"
 
@@ -47,13 +43,14 @@ func main() {
 	//nb.SetSimpleNotice("简单通知")
 	//nb.SetAndroidNotice(&notice)
 
-	mb := push.NewMessageBuilder()
+
+	mb := NewMessageBuilder()
 	mb.SetPlatform(&pf)
 	mb.SetAudience(&ad)
 	mb.SetMessage(&msg)
 
 	//push
-	c := push.NewPushClient(secret, appKey)
+	c := NewPushClient(secret, appKey)
 	str, err := c.Send(mb)
 	if err != nil {
 		fmt.Printf("err:%s", err.Error())

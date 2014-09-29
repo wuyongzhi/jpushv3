@@ -1,4 +1,4 @@
-package push
+package jpushv3
 
 type Option struct {
 	Sendno          int  `json:"sendno"`

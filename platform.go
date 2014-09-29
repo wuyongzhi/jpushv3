@@ -1,4 +1,4 @@
-package push
+package jpushv3
 
 const (
 	IOS      = "ios"

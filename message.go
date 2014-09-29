@@ -1,4 +1,4 @@
-package push
+package jpushv3
 
 type Message struct {
 	Content     string `json:"msg_content"`

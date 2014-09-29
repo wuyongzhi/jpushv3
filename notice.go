@@ -1,4 +1,4 @@
-package push
+package jpushv3
 
 type Notice struct {
 	Alert string `json:"alert"`

@@ -1,4 +1,4 @@
-package push
+package jpushv3
 
 //Base Builder
 type Builder struct {
