@@ -1,5 +1,60 @@
 package jpushv3
 
+
+type Notification struct {
+	values map[string]interface {}
+	android map[string]interface {}
+	ios map[string]interface {}
+}
+
+func (this *Notification) SetSimpleAlert(alert string) {
+	this.values["alert"] = alert
+}
+
+
+func (this *Notification) initAndroid() {
+	if this.android == nil {
+		this.android = map[string]interface {}{}
+		this.values["android"] = this.android
+	}
+}
+
+func (this *Notification) initIOS() {
+	if this.ios == nil {
+		this.ios = map[string]interface {}{}
+		this.values["ios"] = this.ios
+	}
+}
+
+
+
+func (this *Notification) SetAndroidAlert(alert string) {
+	this.initAndroid()
+	this.android["alert"] = alert
+}
+
+
+func (this *Notification) SetAndroidTitle(title string) {
+	this.initAndroid()
+	this.android["title"] = title
+}
+
+func (this *Notification) SetIOSAlert(alert string) {
+	this.initIOS()
+	this.ios["alert"] = alert
+}
+
+func (this *Notification) SetIOSSound(sound string) {
+	this.initIOS()
+	this.ios["sound"] = sound
+}
+
+func (this *Notification) SetIOSBadge(badge string) {
+	this.initIOS()
+	this.ios["badge"] = badge
+}
+
+
 type Notice struct {
 	Alert string `json:"alert"`
 }

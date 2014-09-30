@@ -7,6 +7,8 @@ type Builder struct {
 	Options  *Option     `json:"options"`
 }
 
+
+
 //MessageBuilder
 type MessageBuilder struct {
 	Builder
@@ -26,10 +28,14 @@ type MessageAndNoticeBuilder struct {
 	Message      interface{} `json:"message"`
 }
 
+func defaultOption() *Option {
+	return &Option{1, 300, false}
+}
+
 //---------------------MessageBuilder --------------------
 func NewMessageBuilder() *MessageBuilder {
 	mb := &MessageBuilder{}
-	o := &Option{1, 86400, true}
+	o := defaultOption()
 	mb.Options = o
 	return mb
 }
@@ -53,7 +59,7 @@ func (this *MessageBuilder) SetOptions(o *Option) {
 //---------------------NoticeBuilder----------------------
 func NewNoticeBuilder() *NoticeBuilder {
 	nb := &NoticeBuilder{}
-	o := &Option{1, 86400, true}
+	o := &Option{1, 300, false}
 	nb.Options = o
 	return nb
 }
@@ -65,6 +71,10 @@ func (this *NoticeBuilder) SetSimpleNotice(notice string) {
 
 func (this *NoticeBuilder) SetAndroidNotice(notice *AndroidNotice) {
 	this.Notification = notice
+}
+
+func (this *NoticeBuilder) SetNotification(notification *Notification) {
+	this.Notification = notification
 }
 
 func (this *NoticeBuilder) SetPlatform(pf *Platform) {
@@ -82,7 +92,7 @@ func (this *NoticeBuilder) SetOptions(o *Option) {
 //------------------MessageAndNoticeBuilder------------------
 func NewMessageAndNoticeBuilder() *MessageAndNoticeBuilder {
 	mnb := &MessageAndNoticeBuilder{}
-	o := &Option{1, 86400, true}
+	o := &Option{1, 300, false}
 	mnb.Options = o
 	return mnb
 }
@@ -110,4 +120,8 @@ func (this *MessageAndNoticeBuilder) SetSimpleNotice(notice string) {
 
 func (this *MessageAndNoticeBuilder) SetAndroidNotice(notice *AndroidNotice) {
 	this.Notification = notice
+}
+
+func (this *MessageAndNoticeBuilder) SetNotification(notification *Notification) {
+	this.Notification = notification
 }

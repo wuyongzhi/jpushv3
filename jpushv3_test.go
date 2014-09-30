@@ -44,13 +44,15 @@ func Test_jpushv3(t *testing.T) {
 	//nb.SetAndroidNotice(&notice)
 
 
-	mb := NewMessageBuilder()
+	mb := NewMessageAndNoticeBuilder()
 	mb.SetPlatform(&pf)
 	mb.SetAudience(&ad)
 	mb.SetMessage(&msg)
+	mb.SetSimpleNotice("HelloworldHelloworldHelloworldHelloworldHelloworldHelloworldHelloworldHelloworldHelloworldHelloworldHelloworldHelloworldHelloworldHelloworldHelloworldHelloworldHelloworldHelloworld")
+	mb.SetOptions(&Option{1, 1000, false})
 
 	//push
-	c := NewPushClient(secret, appKey)
+	c := NewPushClient("67c6eee3a58fe8bf82b7ac3d","000b9050605a853ab6533d35")
 	str, err := c.Send(mb)
 	if err != nil {
 		fmt.Printf("err:%s", err.Error())

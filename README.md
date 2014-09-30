@@ -5,7 +5,8 @@
 
  
    Fork 至 https://github.com/ylywyn/jpush-api-go-client
-   感谢 ylywyn
+   
+   感谢  [ylywyn](https://github.com/ylywyn) 
   
   
 ## 不同之处
@@ -25,3 +26,5 @@
 ## 简单使用指南  
  
     暂略
+    
+    
