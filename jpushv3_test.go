@@ -52,7 +52,7 @@ func Test_jpushv3(t *testing.T) {
 	mb.SetOptions(&Option{1, 1000, false})
 
 	//push
-	c := NewPushClient("67c6eee3a58fe8bf82b7ac3d","000b9050605a853ab6533d35")
+	c := NewPushClient(secret,appKey)
 	str, err := c.Send(mb)
 	if err != nil {
 		fmt.Printf("err:%s", err.Error())
