@@ -1,59 +1,57 @@
 package jpushv3
 
-
 type Notification struct {
-	values map[string]interface {}
-	android map[string]interface {}
-	ios map[string]interface {}
+	Alert   string                 `json:"alert,omitempty"`
+	Android map[string]interface{} `json:"android,omitempty"`
+	Ios     map[string]interface{} `json:"ios,omitempty"`
+}
+
+func NewNotification(alert string) *Notification {
+	n := Notification{}
+	n.Alert = alert
+	return &n
 }
 
 func (this *Notification) SetSimpleAlert(alert string) {
-	this.values["alert"] = alert
+	this.Alert = alert
 }
 
-
 func (this *Notification) initAndroid() {
-	if this.android == nil {
-		this.android = map[string]interface {}{}
-		this.values["android"] = this.android
+	if this.Android == nil {
+		this.Android = map[string]interface{}{}
 	}
 }
 
 func (this *Notification) initIOS() {
-	if this.ios == nil {
-		this.ios = map[string]interface {}{}
-		this.values["ios"] = this.ios
+	if this.Ios == nil {
+		this.Ios = map[string]interface{}{}
 	}
 }
 
-
-
 func (this *Notification) SetAndroidAlert(alert string) {
 	this.initAndroid()
-	this.android["alert"] = alert
+	this.Android["alert"] = alert
 }
-
 
 func (this *Notification) SetAndroidTitle(title string) {
 	this.initAndroid()
-	this.android["title"] = title
+	this.Android["title"] = title
 }
 
 func (this *Notification) SetIOSAlert(alert string) {
 	this.initIOS()
-	this.ios["alert"] = alert
+	this.Ios["alert"] = alert
 }
 
 func (this *Notification) SetIOSSound(sound string) {
 	this.initIOS()
-	this.ios["sound"] = sound
+	this.Ios["sound"] = sound
 }
 
 func (this *Notification) SetIOSBadge(badge string) {
 	this.initIOS()
-	this.ios["badge"] = badge
+	this.Ios["badge"] = badge
 }
-
 
 type Notice struct {
 	Alert string `json:"alert"`
@@ -64,7 +62,6 @@ type AndroidNotice struct {
 }
 
 type IosNotice struct {
-
 }
 
 type NoticeAndroid struct {
