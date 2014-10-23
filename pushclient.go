@@ -36,7 +36,7 @@ func (this *PushClient) Send(builder interface{}) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	log.Println(string(content))
+//	log.Println(string(content))
 
 	return this.SendPushBytes(content)
 }
