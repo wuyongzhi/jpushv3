@@ -6,7 +6,6 @@ import (
 	"errors"
 	"github.com/wuyongzhi/jpushv3/common"
 	"strings"
-	"log"
 )
 
 const (
