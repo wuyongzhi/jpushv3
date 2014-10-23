@@ -18,14 +18,14 @@ type MessageBuilder struct {
 //NoticeBuilder
 type NoticeBuilder struct {
 	Builder
-	Notification interface{} `json:"notification"`
+	Notification interface{} `json:"notification,omitempty"`
 }
 
 //MessageAndNotice
 type MessageAndNoticeBuilder struct {
 	Builder
-	Notification interface{} `json:"notification"`
-	Message      interface{} `json:"message"`
+	Notification interface{} `json:"notification,omitempty"`
+	Message      interface{} `json:"message,omitempty"`
 }
 
 func defaultOption() *Option {

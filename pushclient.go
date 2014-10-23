@@ -6,6 +6,7 @@ import (
 	"errors"
 	"github.com/wuyongzhi/jpushv3/common"
 	"strings"
+	"log"
 )
 
 const (
@@ -35,6 +36,7 @@ func (this *PushClient) Send(builder interface{}) (string, error) {
 	if err != nil {
 		return "", err
 	}
+	log.Println(string(content))
 
 	return this.SendPushBytes(content)
 }
