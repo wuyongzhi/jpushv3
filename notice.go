@@ -53,6 +53,11 @@ func (this *Notification) SetIOSBadge(badge string) {
 	this.Ios["badge"] = badge
 }
 
+func (this *Notification) SetIOSExtras(extras interface{}) {
+	this.initIOS()
+	this.Ios["extras"] = extras
+}
+
 type Notice struct {
 	Alert string `json:"alert"`
 }
