@@ -18,8 +18,8 @@ func Test_jpushv3(t *testing.T) {
 
 	//Platform
 	var pf Platform
-	//pf.Add(push.ANDROID)
-	pf.All()
+	pf.Add("android")
+//	pf.All()
 
 	//Audience
 	var ad Audience

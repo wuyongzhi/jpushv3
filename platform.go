@@ -28,3 +28,9 @@ func (this *Platform) Add(os string) {
 
 	}
 }
+
+func (this *Platform) SetAllIfNil() {
+	if this.Object == nil {
+		this.All()
+	}
+}
